@@ -1,0 +1,34 @@
+﻿<Window x:Class="labpt7.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:labpt7"
+        mc:Ignorable="d"
+        Title="Add child" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="0,0,0,10">
+            <TextBlock Text="Number:"/>
+            <TextBox x:Name="numberBox"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Margin="0,0,0,10">
+            <TextBlock Text="Name:"/>
+            <TextBox x:Name="nameBox"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Margin="0,0,0,10">
+            <TextBlock Text="Surname:"/>
+            <TextBox x:Name="surnameBox"/>
+        </StackPanel>
+
+        <Button Grid.Row="3" Content="Create" Click="Create_Click" Height="30" Margin="0,10,0,0"/>
+    </Grid>
+</Window>

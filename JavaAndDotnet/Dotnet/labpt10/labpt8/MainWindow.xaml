@@ -1,0 +1,65 @@
+﻿<Window x:Class="ExampleApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Pearson Correlation Calculator" Height="450" Width="550">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Wybór metody -->
+            <RowDefinition Height="Auto"/>
+            <!-- Liczba wątków -->
+            <RowDefinition Height="Auto"/>
+            <!-- Przyciski Generate/Compute -->
+            <RowDefinition Height="Auto"/>
+            <!-- ProgressBar -->
+            <RowDefinition Height="Auto"/>
+            <!-- Status -->
+            <RowDefinition Height="*"/>
+            <!-- Output -->
+        </Grid.RowDefinitions>
+
+        <!-- 1) Wiersz: wybór metody -->
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,0,0,10">
+            <Label Content="Wybierz metodę wykonania:" VerticalAlignment="Center"/>
+            <ComboBox x:Name="MethodComboBox" Width="200" Margin="5,0,0,0" SelectedIndex="1">
+                <ComboBoxItem>Task&lt;T&gt;</ComboBoxItem>
+                <ComboBoxItem>async-await</ComboBoxItem>
+                <ComboBoxItem>BackgroundWorker</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+
+        <!-- 2) Wiersz: liczba wątków -->
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0,0,0,10">
+            <Label Content="Number of threads:" VerticalAlignment="Center"/>
+            <TextBox x:Name="ThreadsTextBox" Width="60" Margin="5,0,0,0" Text="4"/>
+        </StackPanel>
+
+        <!-- 3) Wiersz: przyciski -->
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="0,0,0,10">
+            <Button x:Name="GenerateDataButton" Content="Generate Data" Width="120"
+                    Click="GenerateDataButton_Click"/>
+            <Button x:Name="ComputeButton" Content="Compute Pearson" Width="120" Margin="10,0,0,0"
+                    Click="ComputeButton_Click"/>
+        </StackPanel>
+
+        <!-- 4) Wiersz: ProgressBar -->
+        <ProgressBar x:Name="MainProgressBar"
+                     Grid.Row="3"
+                     Height="20"
+                     Margin="0,0,0,10"
+                     Minimum="0"
+                     Maximum="100"
+                     IsIndeterminate="False"
+                     Visibility="Collapsed"/>
+
+        <!-- 5) Wiersz: status -->
+        <TextBlock Grid.Row="4" x:Name="StatusTextBlock" FontWeight="Bold"
+                   Foreground="DarkBlue" Margin="0,0,0,10"/>
+
+        <!-- 6) Wiersz: output -->
+        <ScrollViewer Grid.Row="5" VerticalScrollBarVisibility="Auto">
+            <TextBox x:Name="OutputTextBox" IsReadOnly="True" TextWrapping="Wrap"
+                     VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
+        </ScrollViewer>
+    </Grid>
+</Window>

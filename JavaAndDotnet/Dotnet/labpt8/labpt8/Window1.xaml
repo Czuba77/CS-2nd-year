@@ -1,0 +1,49 @@
+﻿<Window x:Class="labpt8.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:labpt8"
+        mc:Ignorable="d"
+        Title="Add Person" Height="450" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Number:"/>
+        <TextBox x:Name="numberBox" Grid.Row="0" Margin="100,0,0,5"/>
+
+        <TextBlock Text="Name:" Grid.Row="1"/>
+        <TextBox x:Name="nameBox" Grid.Row="1" Margin="100,0,0,5"/>
+
+        <TextBlock Text="Surname:" Grid.Row="2"/>
+        <TextBox x:Name="surnameBox" Grid.Row="2" Margin="100,0,0,5"/>
+
+        <TextBlock Text="Zodiac Sign:" Grid.Row="3"/>
+        <ComboBox x:Name="zodiacBox" Grid.Row="3" Margin="100,0,0,5">
+            <ComboBox.ItemsSource>
+                <x:Array Type="{x:Type sys:String}" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                    <sys:String>Aries</sys:String>
+                    <sys:String>Taurus</sys:String>
+                    <sys:String>Gemini</sys:String>
+                    <sys:String>Cancer</sys:String>
+                    <sys:String>Leo</sys:String>
+                    <sys:String>Virgo</sys:String>
+                    <sys:String>Libra</sys:String>
+                    <sys:String>Scorpio</sys:String>
+                    <sys:String>Sagittarius</sys:String>
+                    <sys:String>Capricorn</sys:String>
+                    <sys:String>Aquarius</sys:String>
+                    <sys:String>Pisces</sys:String>
+                </x:Array>
+            </ComboBox.ItemsSource>
+        </ComboBox>
+
+        <Button Content="Create" Grid.Row="4" Height="30" Margin="0,10,0,0" Click="Create_Click"/>
+    </Grid>
+</Window>
